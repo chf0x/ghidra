@@ -37,8 +37,7 @@ import ghidra.app.plugin.core.analysis.AnalysisWorker;
 import ghidra.app.plugin.core.analysis.AutoAnalysisManager;
 import ghidra.app.plugin.core.colorizer.ColorizingService;
 import ghidra.app.plugin.core.table.TableComponentProvider;
-import ghidra.app.services.GoToService;
-import ghidra.app.services.ProgramManager;
+import ghidra.app.services.*;
 import ghidra.app.tablechooser.TableChooserDialog;
 import ghidra.app.tablechooser.TableChooserExecutor;
 import ghidra.app.util.demangler.DemangledObject;
@@ -858,7 +857,7 @@ public abstract class GhidraScript extends FlatProgramAPI {
 				updateStateFromVariables();
 			}
 
-			script.execute(scriptState, getControls());
+			script.execute(scriptState, monitor, writer);
 
 			if (scriptState == state) {
 				loadVariablesFromState();

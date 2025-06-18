@@ -405,7 +405,7 @@ public abstract class HeadlessScript extends GhidraScript {
 					"': unable to run this script type.");
 			}
 
-			GhidraScript script = provider.getScriptInstance(scriptSource, errorWriter);
+			GhidraScript script = provider.getScriptInstance(scriptSource, writer);
 			isHeadlessScript = script instanceof HeadlessScript ? true : false;
 
 			if (potentialPropertiesFileLocs.size() > 0) {
@@ -423,7 +423,7 @@ public abstract class HeadlessScript extends GhidraScript {
 
 			script.setScriptArgs(scriptArguments);
 
-			script.execute(scriptState, getControls());
+			script.execute(scriptState, monitor, writer);
 
 			if (scriptState == state) {
 				loadVariablesFromState();

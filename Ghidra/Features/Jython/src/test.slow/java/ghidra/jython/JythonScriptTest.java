@@ -127,7 +127,7 @@ public class JythonScriptTest extends AbstractGhidraHeadedIntegrationTest {
 		JythonScriptProvider scriptProvider = new JythonScriptProvider();
 		PrintWriter writer = new PrintWriter(new ByteArrayOutputStream());
 		JythonScript script = (JythonScript) scriptProvider.getScriptInstance(scriptFile, writer);
-		script.set(state, new ScriptControls(writer, writer, TaskMonitor.DUMMY));
+		script.set(state, TaskMonitor.DUMMY, writer);
 		script.run();
 
 		waitForSwing();

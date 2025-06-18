@@ -901,7 +901,7 @@ public class GhidraScriptAskMethodsTest extends AbstractGhidraHeadedIntegrationT
 				// test stub
 			}
 		};
-		script.set(state, ScriptControls.NONE);
+		script.set(state, TaskMonitor.DUMMY, null);
 
 		URL url = GhidraScriptTest.class.getResource("GhidraScriptAsk.properties");
 		assertNotNull("Test cannot run without properties file!", url);

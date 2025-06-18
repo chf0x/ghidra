@@ -24,7 +24,6 @@ import db.Transaction;
 import generic.jar.ResourceFile;
 import ghidra.app.plugin.core.interpreter.InterpreterConsole;
 import ghidra.app.script.GhidraState;
-import ghidra.app.script.ScriptControls;
 import ghidra.framework.plugintool.PluginTool;
 import ghidra.program.model.listing.Program;
 import ghidra.util.task.TaskMonitor;
@@ -71,7 +70,7 @@ class JythonPluginExecutionThread extends Thread {
 			interactiveScript.set(
 				new GhidraState(tool, tool.getProject(), program, plugin.getProgramLocation(),
 					plugin.getProgramSelection(), plugin.getProgramHighlight()),
-				new ScriptControls(console, interactiveTaskMonitor));
+				interactiveTaskMonitor, console.getStdOut());
 
 			// Execute the command
 			moreInputWanted.set(false);

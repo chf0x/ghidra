@@ -398,7 +398,7 @@ public class GhidraScriptRealProgramTest extends AbstractGhidraHeadedIntegration
 				// test stub
 			}
 		};
-		script.set(state, ScriptControls.NONE);
+		script.set(state, TaskMonitor.DUMMY, null);
 		return script;
 	}
 
