@@ -19,10 +19,12 @@ import java.io.PrintWriter;
 
 import generic.jar.ResourceFile;
 import ghidra.app.script.*;
+import ghidra.util.classfinder.ExtensionPointProperties;
 
 /**
  * A {@link GhidraScriptProvider} used to run Jython scripts
  */
+@ExtensionPointProperties(priority = 1000) // Enforce high priority so Jython is the default Python provider
 public class JythonScriptProvider extends AbstractPythonScriptProvider {
 
 	@Override

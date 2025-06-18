@@ -29,24 +29,22 @@ import ghidra.program.util.ProgramLocation;
 import ghidra.program.util.ProgramSelection;
 import ghidra.pyghidra.PythonFieldExposer.ExposedFields;
 import ghidra.util.SystemUtilities;
-import ghidra.util.classfinder.ExtensionPointProperties;
 import ghidra.util.exception.AssertException;
 import ghidra.util.task.TaskMonitor;
 
 /**
  * {@link GhidraScript} provider for native python3 scripts
  */
-@ExtensionPointProperties(priority = 1000) // Enforce high priority so PyGhidra is the default Python provider
 public final class PyGhidraScriptProvider extends AbstractPythonScriptProvider {
 
 	private static Consumer<GhidraScript> scriptRunner = null;
 
 	/**
 	 * Sets the Python side script runner.
-	 * 
+	 *
 	 * This method is for <b>internal use only</b> and is only public so it can be
 	 * called from Python.
-	 * 
+	 *
 	 * @param scriptRunner the Python side script runner
 	 * @throws AssertException if the script runner has already been set
 	 */
