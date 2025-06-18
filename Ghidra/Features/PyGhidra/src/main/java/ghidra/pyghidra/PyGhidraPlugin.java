@@ -22,7 +22,7 @@ import ghidra.app.plugin.PluginCategoryNames;
 import ghidra.app.plugin.ProgramPlugin;
 import ghidra.app.plugin.core.interpreter.InterpreterPanelService;
 import ghidra.app.script.GhidraState;
-
+import ghidra.util.task.TaskMonitor;
 import ghidra.framework.plugintool.PluginInfo;
 import ghidra.framework.plugintool.PluginTool;
 import ghidra.framework.plugintool.util.PluginStatus;
