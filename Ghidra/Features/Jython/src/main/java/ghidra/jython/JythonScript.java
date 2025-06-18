@@ -62,7 +62,7 @@ public class JythonScript extends GhidraScript {
 		ResourceFile scriptSource = GhidraScriptUtil.findScriptByName(scriptName);
 		if (scriptSource != null) {
 			GhidraScriptProvider provider = GhidraScriptUtil.getProvider(scriptSource);
-			GhidraScript ghidraScript = provider.getScriptInstance(scriptSource, errorWriter);
+			GhidraScript ghidraScript = provider.getScriptInstance(scriptSource, writer);
 			if (ghidraScript == null) {
 				throw new IllegalArgumentException("Script does not exist: " + scriptName);
 			}
@@ -72,12 +72,12 @@ public class JythonScript extends GhidraScript {
 			}
 
 			if (ghidraScript instanceof JythonScript) {
-				ghidraScript.set(scriptState);
+				ghidraScript.set(scriptState, monitor, writer);
 				JythonScript jythonScript = (JythonScript) ghidraScript;
 				interpreter.execFile(jythonScript.getSourceFile(), jythonScript);
 			}
 			else {
-				ghidraScript.execute(scriptState, getControls());
+				ghidraScript.execute(scriptState, monitor, writer);
 			}
 
 			if (scriptState == state) {
