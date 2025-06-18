@@ -45,7 +45,7 @@ public class ScriptControls {
 	 * @param writer The target of script "print" statements (may be null)
 	 * @param errorWriter The target of script "printerr" statements (may be null)
 	 * @param decorateOutput True to decorate the writer output with a script name prefix; 
-	 *   otherwise, false (see {@link GhidraScript#decorate(String)}
+	 *   otherwise, false
 	 * @param monitor A cancellable monitor
 	 */
 	public ScriptControls(PrintWriter writer, PrintWriter errorWriter, boolean decorateOutput,
@@ -61,7 +61,6 @@ public class ScriptControls {
 	 * 
 	 * @param writer The target of script "print" statements (may be null)
 	 * @param errorWriter The target of script "printerr" statements (may be null)
-	 *   otherwise, false (see {@link GhidraScript#decorate(String)}
 	 * @param monitor A cancellable monitor
 	 */
 	public ScriptControls(PrintWriter writer, PrintWriter errorWriter, TaskMonitor monitor) {
@@ -73,7 +72,6 @@ public class ScriptControls {
 	 * 
 	 * @param stream The target of script "print" statements (may be null)
 	 * @param errorStream The target of script "printerr" statements (may be null)
-	 *   otherwise, false (see {@link GhidraScript#decorate(String)}
 	 * @param monitor A cancellable monitor
 	 */
 	public ScriptControls(OutputStream stream, OutputStream errorStream, TaskMonitor monitor) {
@@ -115,9 +113,7 @@ public class ScriptControls {
 	}
 
 	/**
-	 * {@return True to decorate the writer output with a script name prefix; otherwise, false}
-	 * 
-	 * @see GhidraScript#decorate(String)
+	 * @return True to decorate the writer output with a script name prefix; otherwise, false}
 	 */
 	public boolean shouldDecorateOutput() {
 		return decorateOutput;
